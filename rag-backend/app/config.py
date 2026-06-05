@@ -9,7 +9,7 @@ _BACKEND_ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(_BACKEND_ROOT / ".env")
 
 COHERE_API_KEY = os.getenv("COHERE_API_KEY")
-PINECONE_API_KEY = os.getenv("PINECONE_API_KEY")
+PINECONE_API_KEY = os.getenv("PINECONE_API_KEY").strip()
 PINECONE_ENV = os.getenv("PINECONE_ENV")
 PINECONE_INDEX = os.getenv("PINECONE_INDEX")
 

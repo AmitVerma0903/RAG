@@ -17,7 +17,7 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
-frontend_url = os.getenv("FRONTEND_PRODUCTION_URL") or "https://your-default.com"
+frontend_url = (os.getenv("FRONTEND_PRODUCTION_URL") or "https://your-default.com").rstrip("/")
 logger.info("CORS allowed frontend URL: %s", frontend_url)
 
 app.add_middleware(
@@ -27,7 +27,8 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://localhost:3001",
         "http://127.0.0.1:3001",
-        frontend_url
+        frontend_url,
+        f"{frontend_url}/"
     ],
     allow_credentials=True,
     allow_methods=["*"],

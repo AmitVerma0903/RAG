@@ -17,7 +17,7 @@ setup_logging()
 logger = logging.getLogger(__name__)
 
 app = FastAPI()
-frontend_url = (os.getenv("FRONTEND_PRODUCTION_URL") or "https://your-default.com").rstrip("/")
+frontend_url = (os.getenv("FRONTEND_PRODUCTION_URL") or "https://ragdoc-sigma.vercel.app").rstrip("/")
 logger.info("CORS allowed frontend URL: %s", frontend_url)
 
 app.add_middleware(
